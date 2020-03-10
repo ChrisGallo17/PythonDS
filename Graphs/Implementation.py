@@ -1,31 +1,72 @@
+# Vertex Class will represent each vertex in the graph
+class Vertex:
+    def __init__(self, key):
+        self.id = key
+        self.connectedTo = {} # {key: weight}
+
+    def addNeighbor(self, nbr, weight = 0):
+        self.connectedTo[nbr] = weight
+
+    def __str__(self):
+        return str(self.id) + ' connectedTo: ' + str([x.id for x in self.connectedTo])
+
+    def getConnections(self):
+        return self.connectedTo.keys()
+
+    def getId(self):
+        return self.id
+
+    def getWeight(self, nbr):
+        return self.connectedTo[nbr]
+
+
+# Graph class will hold the master list of vertices
 class Graph: # Adjacency List
-
     def __init__(self):
-        # self.nodes = set()  # all the vertexes in the graph using edges
-        self.connections = {} # all the connections start_vertex:{end_vertex, weight}
+        self.vertList = {} # {key: Vertex()}
+        self.numVertices = 0
 
-    # def add_node(self, node):
-        # self.nodes.add(node)
+    def addVertex(self, key): # adds an instance of Vertex to graph
+        self.numVertices += 1
+        newVertex = Vertex(key)
+        self.vertList[key] = newVertex
+        return newVertex
         
-    def contains(self, v):
-        return v in self.connections.keys()
+    def getVertex(self, n): # finds vertex in graph named n
+        if n in self.vertList:
+            return self.vertList[n]
+        else:
+            return None
+
+    def addEdge(self, f, t, cost = 0):
+        if f not in self.vertList:
+            nv = self.addVertex(f)
+        if t not in self.vertList:
+            nv = self.addVertex(t)
+        self.vertList[f].addNeighbor(self.vertList[t], cost)
+
+    def getVertices(self):
+        return self.vertList.keys()
+
+    def __contains__(self,n):
+        return n in self.vertList
+
+    def __iter__(self): 
+        return iter(self.vertList.values())
+
+
     
-    def connect(self, start, end, weight=1):
-        # v = self.get_vertex(srt(from_vertex)) or Vertex(str(from_vertex))
-        if start not in self.connections:
-            self.connections[start] = {end:weight}
-        else: self.connections[start][end] = weight
+g = Graph()
 
-        if end not in self.connections:
-            self.connections[end] = {}
+for i in range(6):
+    g.addVertex(i)
 
-    def get_nodes(self)
+print(g.vertList)
 
 
-# Adjacency List object should have:
-    # Graph() which creates an empty class
-    # addVertex(vert) adds an instance of Vertex to graph
-    # addEdge(fromVert, toVert) adds new directed edge that connects 2 verts
-    # addEdge(fromVert, toVert, weight) same but with weight
-    # getVertex(vertKey) finds vertex in graph named vertKey
-    # getVerticies() returns a list of all vertecies in the graph 
+g.addEdge(0,1,2)
+
+for vertex in g:
+    print(vertex)
+    print(vertex.getConnections())
+    print('\n')
