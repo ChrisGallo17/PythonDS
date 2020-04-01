@@ -1,8 +1,9 @@
 # Vertex Class will represent each vertex in the graph
+# This implementation uses directed edges
 class Vertex:
     def __init__(self, key):
         self.id = key
-        self.connectedTo = {} # {key: weight}
+        self.connectedTo = {} # {nbr: weight}
 
     def addNeighbor(self, nbr, weight = 0):
         self.connectedTo[nbr] = weight
