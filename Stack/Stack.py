@@ -17,4 +17,7 @@ class Stack(object):
     def size(self):
         return len(self.items)
 
+    def printStack(self):
+        print(self.items)
+
 s = Stack()

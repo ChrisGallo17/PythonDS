@@ -20,7 +20,6 @@ class Vertex:
     def getWeight(self, nbr):
         return self.connectedTo[nbr]
 
-
 # Graph class will hold the master list of vertices
 class Graph: # Adjacency List
     def __init__(self):
@@ -59,7 +58,7 @@ class Graph: # Adjacency List
     
 g = Graph()
 
-for i in range(6):
+for i in range(3):
     g.addVertex(i)
 
 print(g.vertList)
