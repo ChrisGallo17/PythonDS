@@ -15,3 +15,15 @@
 
 class Solution:
     def isHappy(self, n: int) -> bool:
+        s = set()
+        num = n
+        while num not in s:
+            s.add(num)
+            sum = 0
+            while num != 0:
+                sum += (num % 10) ** 2
+                num //= 10
+            num = sum
+            if num == 1:
+                return True
+        return False
