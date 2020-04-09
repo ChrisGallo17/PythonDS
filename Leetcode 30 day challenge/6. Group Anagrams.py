@@ -8,7 +8,7 @@ strs3 = ["hos", "boo", "nay", "deb", "wow", "bop", "bob",
         "yea", "doc", "pen", "job", "dis", "max", "oho", "jed",
         "lye", "ram", "pup", "qua", "ugh", "mir", "nap", "deb",
         "hog", "let", "gym", "bye", "lon", "aft", "eel", "sol",
-        "jab"]
+        "jab"] 
 
 from collections import defaultdict
 def groupAnagrams(strs):

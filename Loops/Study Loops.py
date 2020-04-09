@@ -35,3 +35,9 @@ listDict = [{'e':1,'a':1,'t':1}]
 
 a = 'hcqopoei'
 print(''.join(sorted(a)))
+
+count = 13
+print(count%2)
+print(count//2)
+count //= 2
+print(count)
