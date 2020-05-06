@@ -2,6 +2,11 @@
 
 # How to itterate through a number
 enum = 2468
+string = "string"
+list1 = [1,2,3,4]
+#print(list1[-1])
+for x in range(1, len(list1) - 1):
+    print(x)
 
 for i in enumerate(str(enum)):
     print(i)
@@ -9,7 +14,7 @@ for i in enumerate(str(enum)):
 for i, j in enumerate(str(enum)):
     print(i, j)
 
-for x in range(5):
+for x in range(1,5):
     print(x)
 
 s1 = "string1"
@@ -41,3 +46,17 @@ print(count%2)
 print(count//2)
 count //= 2
 print(count)
+
+# simplifying if else stmts
+rootleft = True
+
+if rootleft:
+    left = rootleft
+else:
+    left = 0
+# is equivalent to
+left = rootleft if rootleft else 0
+
+llist = [[1,2],[0,1]]
+for i in llist:
+    print(i)
